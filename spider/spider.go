@@ -37,6 +37,7 @@ func Run(client *http.Client, startUrl string, maxdepth int, workerCount int) []
 						tt.Done(task.Url)
 						return
 					}
+					log.Printf("Getting url %s width depth %d\n", task.Url, task.Depth)
 					body, err := getPage(client, task.Url)
 					if err != nil {
 						return
